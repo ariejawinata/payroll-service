@@ -1,0 +1,27 @@
+server:
+  port: 8184
+
+spring:
+  application:
+    name: payroll-service
+  jpa:
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: jdbc:mysql://localhost:3306/payroll?allowPublicKeyRetrieval=true&useSSL=false
+    username: root
+    password: password
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      minIdle: 10
+      idle-timeout: 10000
+      maximumPoolSize: 30
+
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8661/eureka
+  instance:
+    hostname: localhost
